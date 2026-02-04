@@ -1,0 +1,62 @@
+:root {
+    --forest-green: #2d6a4f;
+    --leaf-green: #40916c;
+    --mist: #f0f7f4;
+    --dirt: #6c584c;
+}
+
+body {
+    background-color: var(--mist);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.app-container {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.hidden { display: none; }
+
+.ecosystem-display {
+    background: #d8f3dc;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+
+#ecosystemEmoji {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+#timerDisplay {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--forest-green);
+}
+
+input {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    width: 60%;
+}
+
+button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.primary { background: var(--leaf-green); color: white; }
+.danger { background: #e63946; color: white; }

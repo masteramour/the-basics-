@@ -60,3 +60,47 @@ function updateTimerDisplay() {
     const secs = timeLeft % 60;
     timerDisplay.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 }
+// New State Variables
+let streak = localStorage.getItem('canopyStreak') || 0;
+document.getElementById('streakCount').innerText = streak;
+
+const modal = document.getElementById('giveUpModal');
+const confirmBtn = document.getElementById('confirmGiveUp');
+const closeBtn = document.getElementById('closeModal');
+
+// SHOW MODAL: Triggered when "Give Up" is clicked
+window.showGiveUpModal = () => {
+    modal.classList.remove('hidden');
+    // Pause the timer while they decide
+    if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+    }
+};
+
+// CONFIRM GIVE UP: Resets everything
+confirmBtn.onclick = () => {
+    streak = 0; // The penalty!
+    localStorage.setItem('canopyStreak', 0);
+    document.getElementById('streakCount').innerText = 0;
+    
+    resetApp(); // Function to clear timer and hide focus zone
+    modal.classList.add('hidden');
+    alert("The biodiversity food chain has collapsed. 🥀");
+};
+
+// CLOSE MODAL: Resumes the work
+closeBtn.onclick = () => {
+    modal.classList.add('hidden');
+    // Resume timer automatically
+    startTimer(); 
+};
+
+// WIN LOGIC: Update this in your timer interval
+if (timeLeft <= 0) {
+    clearInterval(timerId);
+    streak++;
+    localStorage.setItem('canopyStreak', streak);
+    document.getElementById('streakCount').innerText = streak;
+    alert("Victory! Your biodiversity food chain is thriving. 🦅");
+}

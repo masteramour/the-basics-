@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="giveUpModal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <h2>Abandon the Ecosystem? ⚠️</h2>
+        <p>If you leave now, the current biodiversity food chain will collapse and your streak will reset.</p>
+        <div class="button-group">
+            <button id="confirmGiveUp" class="danger">Yes, Abandon</button>
+            <button id="closeModal" class="primary">No, Keep Growing</button>
+        </div>
+    </div>
+</div>
+
+<div class="streak-card">
+    🔥 Streak: <span id="streakCount">0</span> Days
+</div>
     <div class="app-container">
         <header>
             <h1>Canopy 🌲</h1>
